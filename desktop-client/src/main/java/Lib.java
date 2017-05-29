@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -34,8 +33,6 @@ public class Lib {
 					lines.add(line.trim());
 				}
 			}
-		
-		
 			br.close();
 		} catch (IOException e) {
 			lines.add("File: "+path+" can not be read!");

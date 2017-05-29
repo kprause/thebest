@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
@@ -11,5 +10,5 @@ public class Main {
 		}
 		System.out.println("Hi");
 	
-	}
+	} 
 }
