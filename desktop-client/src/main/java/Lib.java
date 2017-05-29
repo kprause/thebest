@@ -30,7 +30,9 @@ public class Lib {
 			//Construct BufferedReader from InputStreamReader
 			BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 			while ((line = br.readLine()) != null) {
-				lines.add(line);
+				if (line.trim()!=""){
+					lines.add(line.trim());
+				}
 			}
 		
 		
