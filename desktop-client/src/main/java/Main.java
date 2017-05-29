@@ -5,7 +5,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		ArrayList<String> info = Lib.readFileByLine("C:/Users/kevin/Documents/thebest/first_file.txt");
+		ArrayList<String> info = Lib.readFileByLine(Lib.getLocalRootPath()+"/server.conf");
 		for (String line : info){
 			System.out.println(line);
 		}
