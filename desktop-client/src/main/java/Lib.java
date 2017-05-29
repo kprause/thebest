@@ -1,26 +1,45 @@
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Lib {
+	
+	private static String localRootPath;
+	
+	public static String getLocalRootPath(){
+		if (localRootPath == null){
+			try {
+				 localRootPath = new java.io.File( "." ).getCanonicalPath();
+			} catch (IOException e) {
+				localRootPath = "The local path can not be read.";
+				e.printStackTrace();
+			}
+		}
+		return localRootPath;
+	}
 
-	public static ArrayList<String> readFileByLine(String path)throws IOException {	
-			
+	public static ArrayList<String> readFileByLine(String path){			
 		ArrayList<String> lines = new ArrayList<String>();
-		FileInputStream fis = new FileInputStream(path);
-		 
+		FileInputStream fis;
+		String line = null;
+		try {
+			fis = new FileInputStream(path);
 			//Construct BufferedReader from InputStreamReader
 			BufferedReader br = new BufferedReader(new InputStreamReader(fis));
-		 
-			String line = null;
 			while ((line = br.readLine()) != null) {
 				lines.add(line);
 			}
+		
+		
 			br.close();
-			
-			return lines;
+		} catch (IOException e) {
+			lines.add("File: "+path+" can not be read!");
+			e.printStackTrace();
+		}
+		return lines;
 	}
 	
 	
