@@ -7,6 +7,7 @@ public class Main {
 		
 		System.out.println(Lib.getDataFromUrl("http://thebest.sysgame.de/run.cgi/data"));
 		System.out.println(Lib.getDataFromUrl("http://thebest.sysgame.de/run.cgi/toll"));
+		System.out.println(Lib.getDataFromUrl("http://thebest.sysgame.de/run.cgi/getDBData"));
 		
 		ArrayList<String> info = Lib.readFileByLine(Lib.getLocalRootPath()+"/server.conf");
 		for (String line : info){
