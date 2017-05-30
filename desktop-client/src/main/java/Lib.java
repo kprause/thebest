@@ -2,6 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 public class Lib {
@@ -40,6 +43,30 @@ public class Lib {
 		}
 		return lines;
 	}
+	
+	public static String getDataFromUrl(String urlString){
+		String result="";
+		URL url;
+		try {
+			url = new URL(urlString);
+		
+        URLConnection urlCon = url.openConnection();
+        BufferedReader in = new BufferedReader(new InputStreamReader(urlCon.getInputStream()));
+        String inputLine;
+        while ((inputLine = in.readLine()) != null) {
+        	result+=inputLine;
+        }
+        in.close();
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return result;
+	}
+	
 	
 	
 }
